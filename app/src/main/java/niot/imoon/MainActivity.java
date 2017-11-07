@@ -6,6 +6,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.ToxicBakery.viewpager.transforms.CubeInTransformer;
+import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
 import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarTab;
@@ -97,7 +99,7 @@ ViewPager pager;
         adapter.addFragment(frag_dev);
 
         pager.setAdapter(adapter);
-        pager.setPageTransformer(true, new RotateUpTransformer());
+        pager.setPageTransformer(true, new CubeOutTransformer());
 
 
 
@@ -122,6 +124,7 @@ ViewPager pager;
 
             @Override
             public void onPageScrollStateChanged(int state) {
+
 
             }
         });
