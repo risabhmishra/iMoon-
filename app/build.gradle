@@ -28,5 +28,9 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     androidTestCompile 'com.android.support:support-annotations:25.*'
     compile 'com.ToxicBakery.viewpager.transforms:view-pager-transforms:1.2.32@aar'
+    compile 'com.jpardogo.flabbylistview:library:1.0.0'
+    compile 'com.jakewharton:butterknife:4.0.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    android.defaultConfig.javaCompileOptions.annotationProcessorOptions.includeCompileClasspath = true
     compile 'com.roughike:bottom-bar:2.3.1'
 }

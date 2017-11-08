@@ -9,21 +9,21 @@
         id="@+id/tutorial"
         icon="@drawable/tutorial"
         title="Buoy Tutorial"
-        barColorWhenSelected="#7283FE"/>
+        barColorWhenSelected="#FCFCFC"/>
     <tab
         id="@+id/realtimedata"
         icon="@drawable/realdata"
         title="Real Time Data"
-        barColorWhenSelected="#FAFE72"/>
+        barColorWhenSelected="#72FEE7"/>
     <tab
         id="@+id/dataavailability"
         icon="@drawable/dataavail"
         title="Data Availability"
-        barColorWhenSelected="#72FE72"/>
+        barColorWhenSelected="#FCFCFC"/>
 
     <tab
         id="@+id/developers"
         icon="@drawable/devp"
         title="Developers"
-        barColorWhenSelected="#E972FE"/>
+        barColorWhenSelected="#72FEE7"/>
 </tabs>
