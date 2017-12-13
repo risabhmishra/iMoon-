@@ -1,5 +1,6 @@
 package niot.imoon;
 
+import android.content.Intent;
 import android.support.annotation.IdRes;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,8 @@ import android.view.MenuItem;
 import com.ToxicBakery.viewpager.transforms.CubeInTransformer;
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
 import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabReselectListener;
@@ -23,6 +26,7 @@ ViewPager pager;
     private tutorial frag_tut;
     BottomBarTab prevMenuItem;
     BottomBar bottomBar;
+    private FirebaseAuth mAuth;
 
 
     @Override
@@ -30,6 +34,8 @@ ViewPager pager;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mAuth = FirebaseAuth.getInstance();
+        
         pager = (ViewPager)findViewById(R.id.viewpager);
         setUpViewPager(pager);
 
@@ -128,6 +134,24 @@ ViewPager pager;
 
             }
         });
+
+    }
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        FirebaseUser currentuser = mAuth.getCurrentUser();
+        if(currentuser==null){
+            sendtostart();
+        }
+
+    }
+
+    private void sendtostart() {
+        Intent startintent = new Intent(MainActivity.this,Login.class);
+        startActivity(startintent);
+        finish();
 
     }
 
