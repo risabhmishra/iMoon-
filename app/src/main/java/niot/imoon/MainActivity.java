@@ -2,14 +2,18 @@ package niot.imoon;
 
 import android.content.Intent;
 import android.support.annotation.IdRes;
+import android.support.annotation.NonNull;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.Toast;
 
-import com.ToxicBakery.viewpager.transforms.CubeInTransformer;
 import com.ToxicBakery.viewpager.transforms.CubeOutTransformer;
-import com.ToxicBakery.viewpager.transforms.RotateUpTransformer;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.roughike.bottombar.BottomBar;
@@ -137,7 +141,45 @@ ViewPager pager;
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle presses on the action bar items
+        switch (item.getItemId()) {
+            case R.id.signout:
+                FirebaseUser auth =FirebaseAuth.getInstance().getCurrentUser();
+                mAuth.signOut();
+                Intent intent=new Intent(MainActivity.this,Login.class);
+                startActivity(intent);
+                return true;
+            case R.id.delete_acc:
+                auth=FirebaseAuth.getInstance().getCurrentUser();
+                if (auth != null) {
+                    auth.delete()
+                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(MainActivity.this, "Your profile is deleted:( Create a account now!", Toast.LENGTH_SHORT).show();
+                                        startActivity(new Intent(MainActivity.this, Login.class));
+                                        finish();
+                                    } else {
+                                        Toast.makeText(MainActivity.this, "Failed to delete your account!", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
 
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     @Override
     protected void onStart() {
         super.onStart();
