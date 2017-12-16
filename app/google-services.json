@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "884303847585",
+    "firebase_url": "https://imoon-79c2a.firebaseio.com",
+    "project_id": "imoon-79c2a",
+    "storage_bucket": "imoon-79c2a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884303847585:android:ac9e7c8144b98de2",
+        "android_client_info": {
+          "package_name": "niot.imoon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884303847585-sdi4l0u03vug6k2h98lakf29mfgm2q0d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "niot.imoon",
+            "certificate_hash": "ad5616291774f4f1070bab144586cf51fb7e60c9"
+          }
+        },
+        {
+          "client_id": "884303847585-5jiq0qkmi8tl6btn95qbne4c5cjbru75.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZR5CK8gxJiR4A_Z4BouELCoYB5fRItgQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884303847585-5jiq0qkmi8tl6btn95qbne4c5cjbru75.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

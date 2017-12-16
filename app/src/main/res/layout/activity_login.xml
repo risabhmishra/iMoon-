@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="niot.imoon.Login">
+
+    <com.github.florent37.materialtextfield.MaterialTextField
+        android:id="@+id/materialTextField"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/materialTextField2"
+        android:layout_alignStart="@+id/materialTextField2"
+        android:layout_marginBottom="56dp"
+        app:mtf_animationDuration="1000"
+        app:mtf_cardCollapsedHeight="4dp"
+        app:mtf_image="@drawable/ic_mail_grey600_24dp"
+        app:mtf_labelColor="#666">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:textColor="#333"
+            android:textSize="15sp" />
+
+    </com.github.florent37.materialtextfield.MaterialTextField>
+
+    <com.github.florent37.materialtextfield.MaterialTextField
+        android:id="@+id/materialTextField2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/signin_but"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
+        app:mtf_animationDuration="1000"
+        app:mtf_cardCollapsedHeight="4dp"
+        app:mtf_image="@drawable/pass"
+        app:mtf_labelColor="#666">
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignBottom="@+id/materialTextField2"
+            android:layout_centerHorizontal="true"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#333"
+            android:textSize="15sp" />
+
+    </com.github.florent37.materialtextfield.MaterialTextField>
+
+
+    <com.dd.processbutton.iml.ActionProcessButton
+        android:id="@+id/signin_but"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/materialTextField2"
+        android:layout_marginBottom="45dp"
+        android:text="Sign In"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        custom:pb_colorComplete="@color/green_complete"
+        custom:pb_colorNormal="@color/blue_normal"
+        custom:pb_colorPressed="@color/blue_pressed"
+        custom:pb_colorProgress="@color/purple_progress"
+        custom:pb_textComplete="Success"
+        custom:pb_textProgress="Logging In.."
+        custom:pb_textError="Error"
+        custom:pb_colorError="@color/red_error" />
+
+
+    <Button
+        android:id="@+id/signup_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/signin_but"
+        android:layout_alignBottom="@+id/signin_but"
+        android:layout_alignEnd="@+id/materialTextField2"
+        android:text="Sign Up"
+        android:background="@color/holo_blue_bright"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="38dp"
+        android:fontFamily="cursive"
+        android:text="IMoon Login"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/blue_normal"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
