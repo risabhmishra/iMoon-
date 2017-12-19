@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="niot.imoon"
     android:screenOrientation="portrait">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,8 +20,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".Login" />
-        <activity android:name=".Register"></activity>
-        <activity android:name=".ResetPasswordActivity"/>
+        <activity android:name=".Register" />
+        <activity android:name=".ResetPasswordActivity" />
+        <activity
+            android:name=".buoy_info"
+            android:label="Buoy Info"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
