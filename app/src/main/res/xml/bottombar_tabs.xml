@@ -3,7 +3,7 @@
     <tab
         id="@+id/aboutus"
         icon="@drawable/aboutus"
-        title="About Us"
+        title="Buoy Map"
         barColorWhenSelected="#72FEE7"/>
     <tab
         id="@+id/tutorial"
