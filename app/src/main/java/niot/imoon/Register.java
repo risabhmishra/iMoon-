@@ -21,7 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 public class Register extends AppCompatActivity {
 
     EditText email, pass, name, cpass;
-    ActionProcessButton reg;
+    Button reg;
     final String TAG = "NIOT";
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthstatelistener;
@@ -32,10 +32,10 @@ public class Register extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
-        email = (EditText) findViewById(R.id.email_reg);
-        name = (EditText) findViewById(R.id.Name_reg);
-        pass = (EditText) findViewById(R.id.pass_reg);
-        cpass = (EditText) findViewById(R.id.confpass_reg);
+        email = (EditText) findViewById(R.id.email);
+        name = (EditText) findViewById(R.id.name);
+        pass = (EditText) findViewById(R.id.password);
+        cpass = (EditText) findViewById(R.id.password2);
 
         mAuthstatelistener = new FirebaseAuth.AuthStateListener() {
 
@@ -48,8 +48,8 @@ public class Register extends AppCompatActivity {
             }
         };
 
-        reg = (ActionProcessButton) findViewById(R.id.signup_but);
-        reg.setMode(ActionProcessButton.Mode.ENDLESS);
+        reg = (Button) findViewById(R.id.sign_up_button);
+        //reg.setMode(ActionProcessButton.Mode.ENDLESS);
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,8 +66,7 @@ public class Register extends AppCompatActivity {
                     Toast.makeText(Register.this, "Password and Confirm Password don't match!", Toast.LENGTH_LONG).show();
                 }
                 else {
-                      reg.setProgress(1);
-                    mAuth.createUserWithEmailAndPassword(emails, passs)
+                      mAuth.createUserWithEmailAndPassword(emails, passs)
                             .addOnCompleteListener(Register.this, new OnCompleteListener<AuthResult>() {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
@@ -76,12 +75,11 @@ public class Register extends AppCompatActivity {
                                         Log.d(TAG, "createUserWithEmail:success");
                                         FirebaseUser user = mAuth.getCurrentUser();
                                         UserEmailVerification(user);
-                                        reg.setProgress(100);
                                         //Upload();
                                     } else {
                                         // If sign in fails, display a message to the user.
                                         Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                                        reg.setProgress(-1);
+
                                         Toast.makeText(Register.this, "Authentication failed.",
                                                 Toast.LENGTH_SHORT).show();
                                     }
@@ -110,6 +108,8 @@ public class Register extends AppCompatActivity {
                     {
                         Toast.makeText(Register.this,"Check Your Email For Verification",Toast.LENGTH_SHORT).show();
                         mAuth.signOut();
+                        Intent intent=new Intent(Register.this,Login.class);
+                        startActivity(intent);
                     }
                 }
             });
