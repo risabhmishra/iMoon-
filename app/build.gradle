@@ -22,12 +22,15 @@ android {
         exclude 'META-INF/NOTICE'
 
     }
+<<<<<<< HEAD
 }
 
 repositories {
     maven {
         url "https://jitpack.io"
     }
+=======
+>>>>>>> fd9bf7f8e2e84e536ec3a5b9a51d0a6744c1c28d
 }
 
 dependencies {

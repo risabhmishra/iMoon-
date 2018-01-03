@@ -23,8 +23,11 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+<<<<<<< HEAD
 import jp.co.recruit_lifestyle.android.widget.WaveSwipeRefreshLayout;
 
+=======
+>>>>>>> fd9bf7f8e2e84e536ec3a5b9a51d0a6744c1c28d
 
 public class buoy_info extends AppCompatActivity {
     DatabaseReference databaseReference,databaseReference1,databaseReference2;
@@ -36,7 +39,10 @@ String val,parm,parent;
     RecyclerView recyclerView;
     Firebase firebase;
     RecyclerView.Adapter adapter ;
+<<<<<<< HEAD
     private WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
+=======
+>>>>>>> fd9bf7f8e2e84e536ec3a5b9a51d0a6744c1c28d
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +61,11 @@ String val,parm,parent;
 
         progressDialog.setMessage("Loading Data from Firebase Database");
 
+<<<<<<< HEAD
         mWaveSwipeRefreshLayout = (WaveSwipeRefreshLayout) findViewById(R.id.main_swipe);
 
+=======
+>>>>>>> fd9bf7f8e2e84e536ec3a5b9a51d0a6744c1c28d
         progressDialog.show();
         databaseReference=FirebaseDatabase.getInstance().getReference();
         databaseReference1 = databaseReference.child(buoys).child("0");
@@ -95,6 +104,7 @@ String val,parm,parent;
             }
         });
 
+<<<<<<< HEAD
         mWaveSwipeRefreshLayout.setOnRefreshListener(new WaveSwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -106,6 +116,8 @@ String val,parm,parent;
 
             }
         });
+=======
+>>>>>>> fd9bf7f8e2e84e536ec3a5b9a51d0a6744c1c28d
     }
 
 }
