@@ -3,7 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="niot.imoon"
     android:screenOrientation="portrait">
+
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -25,7 +27,8 @@
         <activity
             android:name=".buoy_info"
             android:label="Buoy Info"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".SplashScreen"></activity>
     </application>
 
 </manifest>
