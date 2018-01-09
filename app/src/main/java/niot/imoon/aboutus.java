@@ -1,8 +1,10 @@
 package niot.imoon;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -95,6 +97,13 @@ public class aboutus extends Fragment {
             public boolean onItemClick(int position, MenuEntity menuEntity1) {
 
                 Toast.makeText(getContext(), menuEntity1.title + "  " + position, Toast.LENGTH_SHORT).show();
+                switch (position){
+                    case 0:
+                        status_map fragment = new status_map();
+                        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+                        transaction.replace(R.layout.status_map, fragment);
+                        transaction.commit();
+                }
                 return true;
             }
         });
