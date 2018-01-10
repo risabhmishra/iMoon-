@@ -62,6 +62,7 @@ public class aboutus extends Fragment {
 
             @Override
             public void onLongPress(MotionEvent e) {
+                mSweetSheet2.toggle();
 
             }
 
