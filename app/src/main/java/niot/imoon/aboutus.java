@@ -3,6 +3,7 @@ package niot.imoon;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -25,6 +26,8 @@ public class aboutus extends Fragment {
 
     private RelativeLayout rl;
     private SweetSheet mSweetSheet2;
+    private Buoy_Status_Map buoy_status_map;
+    FragmentTransaction ft;
 
 
     @Override
@@ -34,8 +37,16 @@ public class aboutus extends Fragment {
         View v = inflater.inflate(R.layout.fragment_aboutus, container, false);
 
         rl = (RelativeLayout) v.findViewById(R.id.rl);
+
+        buoy_status_map = new Buoy_Status_Map();
+         ft= getFragmentManager().beginTransaction();
+
         setupViewpager();
         mSweetSheet2.show();
+
+
+
+
 
         final GestureDetector gesture = new GestureDetector(getActivity(), new GestureDetector.OnGestureListener() {
             @Override
@@ -94,6 +105,12 @@ public class aboutus extends Fragment {
         mSweetSheet2.setOnMenuItemClickListener(new SweetSheet.OnMenuItemClickListener() {
             @Override
             public boolean onItemClick(int position, MenuEntity menuEntity1) {
+                switch (position){
+                    case 0: ft.replace(getParentFragment().getId(),buoy_status_map);
+                    ft.addToBackStack(null);
+                    ft.commit();
+                    break;
+                }
 
                 Toast.makeText(getContext(), menuEntity1.title + "  " + position, Toast.LENGTH_SHORT).show();
                 return true;
