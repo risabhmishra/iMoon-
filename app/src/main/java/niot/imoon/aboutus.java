@@ -41,7 +41,6 @@ public class aboutus extends Fragment {
 
         buoy_status_map = new Buoy_Status_Map();
          ft= getFragmentManager().beginTransaction();
-
         setupViewpager();
         mSweetSheet2.show();
 

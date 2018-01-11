@@ -17,11 +17,6 @@
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Login" />
         <activity android:name=".Register" />
@@ -30,7 +25,13 @@
             android:name=".buoy_info"
             android:label="Buoy Info"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SplashScreen"></activity>
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
