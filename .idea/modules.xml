@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/iMoon.iml" filepath="$PROJECT_DIR$/iMoon.iml" />
-      <module fileurl="file://D:\Project\iMoon\iMoon-new.iml" filepath="D:\Project\iMoon\iMoon-new.iml" />
+      <module fileurl="file://D:\My android projects\iMoon-\iMoon.iml" filepath="D:\My android projects\iMoon-\iMoon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iMoon-.iml" filepath="$PROJECT_DIR$/iMoon-.iml" />
     </modules>
   </component>
 </project>

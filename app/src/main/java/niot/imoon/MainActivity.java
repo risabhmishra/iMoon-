@@ -43,6 +43,7 @@ ViewPager pager;
         pager = (ViewPager)findViewById(R.id.viewpager);
         setUpViewPager(pager);
 
+
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {
@@ -141,45 +142,7 @@ ViewPager pager;
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu items for use in the action bar
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle presses on the action bar items
-        switch (item.getItemId()) {
-            case R.id.signout:
-                FirebaseUser auth =FirebaseAuth.getInstance().getCurrentUser();
-                mAuth.signOut();
-                Intent intent=new Intent(MainActivity.this,Login.class);
-                startActivity(intent);
-                return true;
-            case R.id.delete_acc:
-                auth=FirebaseAuth.getInstance().getCurrentUser();
-                if (auth != null) {
-                    auth.delete()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()) {
-                                        Toast.makeText(MainActivity.this, "Your profile is deleted:( Create a account now!", Toast.LENGTH_SHORT).show();
-                                        startActivity(new Intent(MainActivity.this, Login.class));
-                                        finish();
-                                    } else {
-                                        Toast.makeText(MainActivity.this, "Failed to delete your account!", Toast.LENGTH_SHORT).show();
-                                    }
-                                }
-                            });
-                }
 
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-    }
     @Override
     protected void onStart() {
         super.onStart();

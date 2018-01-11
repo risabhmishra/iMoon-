@@ -16,11 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:icon">
-        <activity android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
         <activity android:name=".Login" />
         <activity android:name=".Register" />
         <activity android:name=".ResetPasswordActivity" />
+        <activity android:name=".settings" />
         <activity
             android:name=".buoy_info"
             android:label="Buoy Info"
@@ -32,6 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="imoon.origin.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
     </application>
 
 </manifest>

@@ -28,6 +28,10 @@ public class aboutus extends Fragment {
     private RelativeLayout rl;
     private SweetSheet mSweetSheet2;
     private Buoy_Status_Map buoy_status_map;
+    private insat insat;
+    private aboutniot aboutniot;
+    private settings settings;
+    private data_request data_request;
     FragmentTransaction ft;
 
 
@@ -40,6 +44,10 @@ public class aboutus extends Fragment {
         rl = (RelativeLayout) v.findViewById(R.id.rl);
 
         buoy_status_map = new Buoy_Status_Map();
+        insat=new insat();
+        aboutniot=new aboutniot();
+        data_request=new data_request();
+        settings=new settings();
          ft= getFragmentManager().beginTransaction();
         setupViewpager();
         mSweetSheet2.show();
@@ -61,7 +69,11 @@ public class aboutus extends Fragment {
 
             @Override
             public boolean onSingleTapUp(MotionEvent e) {
-                mSweetSheet2.toggle();
+                if(mSweetSheet2.isShow()){
+                    mSweetSheet2.dismiss();
+                }
+                else
+                    mSweetSheet2.show();
 
                 return true;
             }
@@ -106,11 +118,34 @@ public class aboutus extends Fragment {
             @Override
             public boolean onItemClick(int position, MenuEntity menuEntity1) {
                 switch (position){
-                    case 0: ft.replace(R.id.container_frag,buoy_status_map);
-                    ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                    ft.addToBackStack(null);
-                    ft.commit();
+                    case 0:
+                        ft.replace(R.id.container_frag,buoy_status_map);
+                        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                        ft.addToBackStack(null);
+                        ft.commit();
                     break;
+                    case 1:
+                        ft.replace(R.id.container_frag,aboutniot);
+                        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                        ft.addToBackStack(null);
+                        ft.commit();
+                        break;
+                    case 2:
+                        ft.replace(R.id.container_frag,data_request);
+                        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                        ft.addToBackStack(null);
+                        ft.commit();
+                        break;
+                    case 3:
+                        ft.replace(R.id.container_frag,insat);
+                        ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                        ft.addToBackStack(null);
+                        ft.commit();
+                        break;
+                    case 4:
+                        Intent myIntent = new Intent(aboutus.this.getActivity(), settings.class);
+                        startActivity(myIntent);
+                        break;
                 }
 
                 Toast.makeText(getContext(), menuEntity1.title + "  " + position, Toast.LENGTH_SHORT).show();
