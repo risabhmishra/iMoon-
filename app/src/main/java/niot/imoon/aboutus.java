@@ -2,6 +2,8 @@ package niot.imoon;
 
 
 import android.content.Intent;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.OvalShape;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -13,10 +15,14 @@ import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.getbase.floatingactionbutton.FloatingActionButton;
+import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.mingle.entity.MenuEntity;
 import com.mingle.sweetpick.DimEffect;
 import com.mingle.sweetpick.SweetSheet;
 import com.mingle.sweetpick.ViewPagerDelegate;
+import com.ogaclejapan.arclayout.ArcLayout;
+import com.sa90.materialarcmenu.ArcMenu;
 
 
 /**
@@ -48,10 +54,74 @@ public class aboutus extends Fragment {
         aboutniot=new aboutniot();
         data_request=new data_request();
         settings=new settings();
-         ft= getFragmentManager().beginTransaction();
-        setupViewpager();
-        mSweetSheet2.show();
+         //ft= getFragmentManager().beginTransaction();
+        //setupViewpager();
+//        mSweetSheet2.show();
+        //////////
 
+
+        ShapeDrawable drawable = new ShapeDrawable(new OvalShape());
+        drawable.getPaint().setColor(getResources().getColor(R.color.white));
+        //((FloatingActionButton)v.findViewById(R.id.setter_drawable)).setIconDrawable(drawable);
+
+        final FloatingActionButton buoy_map = (FloatingActionButton) v.findViewById(R.id.buoy_status_map);
+        buoy_map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ft= getFragmentManager().beginTransaction();
+                ft.replace(R.id.container_frag,buoy_status_map);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        });
+
+        final FloatingActionButton data_req = (FloatingActionButton) v.findViewById(R.id.data_request);
+        data_req.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ft= getFragmentManager().beginTransaction();
+                ft.replace(R.id.container_frag,data_request);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        });
+        final FloatingActionButton about_niot = (FloatingActionButton) v.findViewById(R.id.about_niot);
+        about_niot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ft= getFragmentManager().beginTransaction();
+                ft.replace(R.id.container_frag,aboutniot);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        });
+        final FloatingActionButton imd_forecast = (FloatingActionButton) v.findViewById(R.id.imd_forecast);
+        imd_forecast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ft= getFragmentManager().beginTransaction();
+                ft.replace(R.id.container_frag,insat);
+                ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+                ft.addToBackStack(null);
+                ft.commit();
+            }
+        });
+        final FloatingActionButton settings = (FloatingActionButton) v.findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent myIntent = new Intent(aboutus.this.getActivity(), settings.class);
+                startActivity(myIntent);
+            }
+        });
+
+
+        ////////
+
+/******
 
 
 
@@ -155,11 +225,14 @@ public class aboutus extends Fragment {
         });
     }
 
+    *********/
 
 
 
 
+        return v;
 
+}
 }
 
 

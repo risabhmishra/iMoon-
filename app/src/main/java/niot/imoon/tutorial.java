@@ -30,8 +30,8 @@ public class tutorial extends Fragment {
     private String url = "http://buoytutorial.blogspot.in/2016/05/buoy-tutorial.html";
     private WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
 
-
-
+    public tutorial() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -43,7 +43,6 @@ ViewPager pager;
         pager = (ViewPager)findViewById(R.id.viewpager);
         setUpViewPager(pager);
 
-
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
 
         bottomBar.setOnTabSelectListener(new OnTabSelectListener() {

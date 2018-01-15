@@ -24,6 +24,7 @@
         android:layout_gravity="bottom"
         android:layout_alignParentBottom="true"
         app:bb_tabXmlResource="@xml/bottombar_tabs"
+        app:bb_activeTabColor="@color/white"
         app:bb_behavior="shy"/>
 
 </android.support.design.widget.CoordinatorLayout>

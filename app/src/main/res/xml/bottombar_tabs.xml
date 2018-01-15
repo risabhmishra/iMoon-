@@ -4,12 +4,12 @@
         id="@+id/aboutus"
         icon="@drawable/aboutus"
         title="Home"
-        barColorWhenSelected="#72FEE7"/>
+        barColorWhenSelected="#f06292"/>
     <tab
         id="@+id/tutorial"
         icon="@drawable/tutorial"
         title="Buoy Tutorial"
-        barColorWhenSelected="#FCFCFC"/>
+        barColorWhenSelected="#795548"/>
     <tab
         id="@+id/realtimedata"
         icon="@drawable/realdata"
@@ -19,11 +19,11 @@
         id="@+id/dataavailability"
         icon="@drawable/dataavail"
         title="Data Availability"
-        barColorWhenSelected="#FCFCFC"/>
+        barColorWhenSelected="#9c27b0"/>
 
     <tab
         id="@+id/developers"
         icon="@drawable/devp"
         title="Developers"
-        barColorWhenSelected="#72FEE7"/>
+        barColorWhenSelected="#ff9800"/>
 </tabs>

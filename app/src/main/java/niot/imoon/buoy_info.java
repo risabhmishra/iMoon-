@@ -36,6 +36,7 @@ String val,parm,parent;
     RecyclerView.Adapter adapter ;
     private WaveSwipeRefreshLayout mWaveSwipeRefreshLayout;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
