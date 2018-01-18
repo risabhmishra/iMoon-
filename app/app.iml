@@ -169,6 +169,7 @@
     <orderEntry type="library" name="com.google.firebase:firebase-analytics-11.0.4" level="project" />
     <orderEntry type="library" name="com.android.support:support-media-compat-25.4.0" level="project" />
     <orderEntry type="library" name="com.github.dmytrodanylyk.android-process-button:library-1.0.4" level="project" />
+    <orderEntry type="library" name="com.yalantis:flipviewpager-1.0.0" level="project" />
     <orderEntry type="library" name="com.google.firebase:firebase-database-connection-11.0.4" level="project" />
     <orderEntry type="library" name="com.android.support:design-25.4.0" level="project" />
     <orderEntry type="library" name="com.android.support:transition-25.4.0" level="project" />
@@ -179,5 +180,6 @@
     <orderEntry type="library" name="com.android.support:support-vector-drawable-25.4.0" level="project" />
     <orderEntry type="library" name="com.android.support:recyclerview-v7-25.4.0" level="project" />
     <orderEntry type="library" name="com.google.android.gms:play-services-location-11.0.4" level="project" />
+    <orderEntry type="library" name="com.github.bumptech.glide:glide:3.7.0@jar" level="project" />
   </component>
 </module>

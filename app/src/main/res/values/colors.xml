@@ -25,4 +25,6 @@
     <color name="pink_pressed">#ec407a</color>
     <color name="blue_semi_transparent">#805677fc</color>
     <color name="blue_semi_transparent_pressed">#80738ffe</color>
+    <color name="green">#0099a7</color>
+    <color name="saffron">#F4B63E</color>
 </resources>

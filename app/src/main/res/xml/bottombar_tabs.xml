@@ -4,7 +4,7 @@
         id="@+id/aboutus"
         icon="@drawable/aboutus"
         title="Home"
-        barColorWhenSelected="#f06292"/>
+        barColorWhenSelected="#9c27b0"/>
     <tab
         id="@+id/tutorial"
         icon="@drawable/tutorial"
@@ -15,12 +15,6 @@
         icon="@drawable/realdata"
         title="Real Time Data"
         barColorWhenSelected="#72FEE7"/>
-    <tab
-        id="@+id/dataavailability"
-        icon="@drawable/dataavail"
-        title="Data Availability"
-        barColorWhenSelected="#9c27b0"/>
-
     <tab
         id="@+id/developers"
         icon="@drawable/devp"

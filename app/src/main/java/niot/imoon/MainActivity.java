@@ -57,11 +57,8 @@ ViewPager pager;
                 if (tabId == R.id.realtimedata) {
                     pager.setCurrentItem(2);
                 } else
-                if (tabId == R.id.dataavailability) {
-                    pager.setCurrentItem(3);
-                } else
                 if (tabId == R.id.developers) {
-                    pager.setCurrentItem(4);
+                    pager.setCurrentItem(3);
                 }
             }
         });
@@ -78,11 +75,8 @@ ViewPager pager;
                 if (tabId == R.id.realtimedata) {
                     pager.setCurrentItem(2);
                 } else
-                if (tabId == R.id.dataavailability) {
-                    pager.setCurrentItem(3);
-                } else
                 if (tabId == R.id.developers) {
-                    pager.setCurrentItem(4);
+                    pager.setCurrentItem(3);
                 }
             }
         });
@@ -97,7 +91,7 @@ ViewPager pager;
 
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         frag_about = new aboutus();
-        frag_dataavail = new dataavailability();
+        //frag_dataavail = new dataavailability();
         frag_dev = new developers();
         frag_realtdata = new realtimedata();
         frag_tut = new tutorial();
@@ -105,7 +99,7 @@ ViewPager pager;
         adapter.addFragment(frag_about);
         adapter.addFragment(frag_tut);
         adapter.addFragment(frag_realtdata);
-        adapter.addFragment(frag_dataavail);
+        //adapter.addFragment(frag_dataavail);
         adapter.addFragment(frag_dev);
 
         pager.setAdapter(adapter);
