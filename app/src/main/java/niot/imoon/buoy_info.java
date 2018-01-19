@@ -127,7 +127,9 @@ public class buoy_info extends AppCompatActivity {
                 list.add(buoyParameters);
                 adapter = new RecyclerViewAdapter(buoy_info.this, list);
 
+
                 recyclerView.setAdapter(adapter);
+                adapter.notifyDataSetChanged();
 
                 progressDialog.dismiss();
 

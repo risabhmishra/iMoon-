@@ -31,7 +31,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_items, parent, false);
 
         ViewHolder viewHolder = new ViewHolder(view);
-
+        //notifyDataSetChanged();
         return viewHolder;
     }
 

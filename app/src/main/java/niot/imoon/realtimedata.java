@@ -75,6 +75,7 @@ public class realtimedata extends Fragment{
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                mAdapter.notifyDataSetChanged();
                 Intent intent=new Intent(realtimedata.this.getActivity(),buoy_info.class);
                 intent.putExtra("buoys",position);
                 startActivity(intent);
