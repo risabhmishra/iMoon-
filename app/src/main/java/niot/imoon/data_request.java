@@ -65,7 +65,7 @@ import java.util.Date;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class data_request extends Fragment implements DatePickerDialog.OnDateSetListener{
+public class data_request extends Fragment {
 
 
     public String data[] = new String[13];
