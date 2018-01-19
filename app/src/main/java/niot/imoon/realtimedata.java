@@ -31,7 +31,6 @@ import retrofit2.Response;
 
 public class realtimedata extends Fragment{
     private ListAdapters mAdapter;
-    List<String> buoyarray;
     ArrayList<String> buoys=new ArrayList<>();
     public realtimedata() {
         // Required empty public constructor
@@ -40,13 +39,9 @@ public class realtimedata extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         View v = inflater.inflate(R.layout.fragment_realtimedata, container, false);
-
-
-        final buoyRetrofit buoy = buoyRetrofit.retrofit.create(buoyRetrofit.class);
-        //txt1="";
+        buoyRetrofit buoy = buoyRetrofit.retrofit.create(buoyRetrofit.class);
         Call<BuoyDataAdapter> call = buoy.buoy_data();
         call.enqueue(new Callback<BuoyDataAdapter>() {
             @Override
@@ -70,8 +65,7 @@ public class realtimedata extends Fragment{
                 Toast.makeText(getActivity(), "Translate failed", Toast.LENGTH_LONG).show();
             }
         });
-        //String[] stringArr = buoys.toArray( new String[] {} );
-        buoyarray = new ArrayList<>();
+
 
         final ListView listView = (ListView)v.findViewById(R.id.listv);
 
@@ -82,7 +76,7 @@ public class realtimedata extends Fragment{
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent=new Intent(realtimedata.this.getActivity(),buoy_info.class);
-                intent.putExtra("buoys",mAdapter.getItem(position));
+                intent.putExtra("buoys",position);
                 startActivity(intent);
 
             }
