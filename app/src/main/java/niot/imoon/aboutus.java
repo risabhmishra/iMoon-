@@ -72,7 +72,6 @@ public class aboutus extends Fragment {
                 ft.replace(R.id.container_frag,buoy_status_map);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 ft.addToBackStack(null);
-                buoy_map.setVisibility(View.GONE);
                 ft.commit();
 
             }
@@ -86,7 +85,6 @@ public class aboutus extends Fragment {
                 ft.replace(R.id.container_frag,data_request);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 ft.addToBackStack(null);
-                                data_req.setVisibility(View.GONE);
                 ft.commit();
             }
         });
@@ -98,7 +96,6 @@ public class aboutus extends Fragment {
                 ft.replace(R.id.container_frag,aboutniot);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 ft.addToBackStack(null);
-                               about_niot.setVisibility(View.GONE);
 
                 ft.commit();
             }
@@ -111,7 +108,6 @@ public class aboutus extends Fragment {
                 ft.replace(R.id.container_frag,insat);
                 ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 ft.addToBackStack(null);
-                                imd_forecast.setVisibility(View.GONE);
 
                 ft.commit();
             }
@@ -120,7 +116,6 @@ public class aboutus extends Fragment {
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                                settings.setVisibility(View.GONE);
 
                 Intent myIntent = new Intent(aboutus.this.getActivity(), settings.class);
                 startActivity(myIntent);
