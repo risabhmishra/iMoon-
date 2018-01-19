@@ -14,18 +14,25 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.jpardogo.android.flabbylistview.lib.FlabbyListView;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.ListIterator;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 public class realtimedata extends Fragment{
     private ListAdapters mAdapter;
     List<String> buoyarray;
-
+    ArrayList<String> buoys=new ArrayList<>();
     public realtimedata() {
         // Required empty public constructor
     }
@@ -37,15 +44,38 @@ public class realtimedata extends Fragment{
 
         View v = inflater.inflate(R.layout.fragment_realtimedata, container, false);
 
-        String buoys [] = {"AD06","AD07","AD08","AD09","AD10","BD08","BD09","BD10","BD11","BD12","BD13","BD14","CALVAL","CB01","CB02","CB06"};
 
-        buoyarray = new ArrayList<>(
-                Arrays.asList(buoys)
-        );
+        final buoyRetrofit buoy = buoyRetrofit.retrofit.create(buoyRetrofit.class);
+        //txt1="";
+        Call<BuoyDataAdapter> call = buoy.buoy_data();
+        call.enqueue(new Callback<BuoyDataAdapter>() {
+            @Override
+            public void onResponse(Call<BuoyDataAdapter> call, Response<BuoyDataAdapter> response) {
+                List<Row> row = response.body().getRow();
+                //See the response
+                System.out.println("HAHA: " + response.raw().toString());
+                //List<Translation> list = data.getTranslations();
+
+                ListIterator<Row> los = row.listIterator();
+                //String txt1 = "";
+                while (los.hasNext()) {
+                    buoys.add(los.next().getParameterBuoyID());
+                    System.out.println(buoys);
+                }
+            }
+
+
+            @Override
+            public void onFailure(Call<BuoyDataAdapter> call, Throwable t) {
+                Toast.makeText(getActivity(), "Translate failed", Toast.LENGTH_LONG).show();
+            }
+        });
+        //String[] stringArr = buoys.toArray( new String[] {} );
+        buoyarray = new ArrayList<>();
 
         final ListView listView = (ListView)v.findViewById(R.id.listv);
 
-        mAdapter = new ListAdapters(getActivity().getBaseContext(),buoyarray);
+        mAdapter = new ListAdapters(getActivity().getBaseContext(),buoys);
 
         listView.setAdapter(mAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
