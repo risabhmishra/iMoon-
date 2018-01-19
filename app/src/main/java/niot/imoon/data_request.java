@@ -70,6 +70,7 @@ public class data_request extends Fragment {
 
     public String data[] = new String[13];
     public EditText d[] = new EditText[9];
+    public DatePicker dp[] = new DatePicker[2];
     public String label[] = {"Address: ","Name: ","Buoy Details: ", "Parameters: ", "Time Duration-From date: ", "To date: ", "Phone Number: ",
             "Project Cost(Rs): ","Approval Details: ", "Own Research or Sponsored Project?:  "};
     public boolean dataforconsult;
@@ -96,64 +97,13 @@ public class data_request extends Fragment {
         d[1] = (EditText)rootView.findViewById(R.id.name);
         d[2] = (EditText)rootView.findViewById(R.id.bdetail);
         d[3] = (EditText)rootView.findViewById(R.id.para);
+        d[4] = (EditText)rootView.findViewById(R.id.ieddate);
+        d[5] = (EditText)rootView.findViewById(R.id.feddate);
+        dp[0] = (DatePicker)rootView.findViewById(R.id.idate);
+        d[4].setText(dp[0].getDayOfMonth() + "/" + (dp[0].getMonth() + 1) + "/" + dp[0].getYear());
 
-        d[4] = (EditText)rootView.findViewById(R.id.idate);
-        d[4].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get Current Date
-                final Calendar c = Calendar.getInstance();
-                int mYear = c.get(Calendar.YEAR);
-                int mMonth = c.get(Calendar.MONTH);
-                int mDay = c.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(context,
-                        new DatePickerDialog.OnDateSetListener() {
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-
-                                d[4].setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-
-                            }
-                        }, mYear, mMonth, mDay);
-                datePickerDialog.show();
-
-            }
-        });
-
-
-
-
-        d[5] = (EditText)rootView.findViewById(R.id.fdate);
-        d[5].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Get Current Date
-                final Calendar c = Calendar.getInstance();
-                int mYear = c.get(Calendar.YEAR);
-                int mMonth = c.get(Calendar.MONTH);
-                int mDay = c.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog datePickerDialog = new DatePickerDialog(getContext(),
-                        new DatePickerDialog.OnDateSetListener() {
-
-                            @Override
-                            public void onDateSet(DatePicker view, int year,
-                                                  int monthOfYear, int dayOfMonth) {
-
-                                d[5].setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
-
-                            }
-                        }, mYear, mMonth, mDay);
-                datePickerDialog.show();
-
-            }
-        });
-
-
-
+        dp[1] = (DatePicker)rootView.findViewById(R.id.fdate);
+        d[4].setText(dp[1].getDayOfMonth() + "/" + (dp[1].getMonth() + 1) + "/" + dp[1].getYear());
 
         //d[9]= d[6], d[10]= d[7]
         d[6] = (EditText)rootView.findViewById(R.id.pro);
@@ -289,24 +239,24 @@ public class data_request extends Fragment {
 
             string.append(mAuth.getCurrentUser().getEmail().toString()).toString();
 
-if(dataforconsult){
-    string.append("\n Sponsored Project").toString();
-    for(int i=0; i<9; i++){
-        string.append("/n" + label[i]).append(" " + data[i]).toString();
-    }
+            if(dataforconsult){
+                string.append("\n Sponsored Project").toString();
+                for(int i=0; i<9; i++){
+                    string.append("/n" + label[i]).append(" " + data[i]).toString();
+                }
 
-    string.append("\n"+label[9]).toString();
-}
-else {
+                string.append("\n"+label[9]).toString();
+            }
+            else {
 
-    string.append("\n Own Research").toString();
-    for(int i=0; i<7; i++){
-        string.append("/n" + label[i]).append(" " + data[i]).toString();
-    }
+                string.append("\n Own Research").toString();
+                for(int i=0; i<7; i++){
+                    string.append("/n" + label[i]).append(" " + data[i]).toString();
+                }
 
-    string.append("\n"+label[9]).toString();
+                string.append("\n"+label[9]).toString();
 
-}
+            }
             Intent mail = new Intent(Intent.ACTION_SEND);
             mail.putExtra(Intent.EXTRA_EMAIL,new String[]{"risabhmishra19@gmail.com"});
             mail.putExtra(Intent.EXTRA_SUBJECT, new String[]{"NIOT Data Requisition"});
