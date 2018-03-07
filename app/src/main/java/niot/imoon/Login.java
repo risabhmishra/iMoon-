@@ -137,7 +137,9 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         signin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
                 onsignin();
+                progressBar.setVisibility(View.GONE);
             }
         });
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -187,17 +189,17 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
 
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct)
-    {
+    {final ProgressDialog progressDialog=new ProgressDialog(Login.this);
+        progressDialog.setMessage("Signing In..");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
         AuthCredential credential= GoogleAuthProvider.getCredential(acct.getIdToken(),null);
         auth.signInWithCredential(credential).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful())
                 {
-                    final ProgressDialog progressDialog=new ProgressDialog(Login.this);
-                    progressDialog.setMessage("Signing In..");
-                    progressDialog.setCanceledOnTouchOutside(false);
-                    progressDialog.show();
+
                     startActivity(new Intent(Login.this,MainActivity.class));
                     progressDialog.dismiss();
                     finish();
@@ -205,6 +207,8 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                 else
                 {
                     Toast.makeText(Login.this,"Authentication Failed",Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+
                 }
             }
         });

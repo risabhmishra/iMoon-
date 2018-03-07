@@ -551,17 +551,17 @@ public class SplashScreen extends AwesomeSplash {
     public void initSplash(ConfigSplash configSplash) {
 //Customize Circular Reveal
         configSplash.setBackgroundColor(R.color.splash_screen); //any color you want form colors.xml
-        configSplash.setAnimCircularRevealDuration(3000); //int ms
+        configSplash.setAnimCircularRevealDuration(2000); //int ms
         configSplash.setRevealFlagX(Flags.REVEAL_RIGHT);  //or Flags.REVEAL_LEFT
         configSplash.setRevealFlagY(Flags.REVEAL_BOTTOM); //or Flags.REVEAL_TOP
 
         //Choose LOGO OR PATH; if you don't provide String value for path it's logo by default
-/*
+
         //Customize Logo
         configSplash.setLogoSplash(R.drawable.ic_niot); //or any other drawable
-        configSplash.setAnimLogoSplashDuration(2000); //int ms
-        configSplash.setAnimLogoSplashTechnique(Techniques.FadeInUp);
-*/
+        configSplash.setAnimLogoSplashDuration(3000); //int ms
+        configSplash.setAnimLogoSplashTechnique(Techniques.SlideInUp);
+/*
         configSplash.setPathSplash(path); //set path String
         configSplash.setOriginalHeight(285); //in relation to your svg (path) resource
         configSplash.setOriginalWidth(285); //in relation to your svg (path) resource
@@ -571,7 +571,7 @@ public class SplashScreen extends AwesomeSplash {
         configSplash.setAnimPathFillingDuration(1000);
         configSplash.setPathSplashFillColor(R.color.bg_main); //path object filling color
           configSplash.setAnimLogoSplashTechnique(Techniques.Wave);
-
+*/
 
         //Customize Title
         configSplash.setTitleSplash("iMoon v2.0\n Ocean Observation Systems");
